@@ -31,9 +31,15 @@
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
-        "camelcase": "error",
+        "@typescript-eslint/camelcase": "off",
+        "camelcase": ["error", {
+            "properties": "always",
+            "ignoreDestructuring": false,
+            "allow": ["redirect_uri"]
+        }],
         "spaced-comment": "error",
         "quotes": ["error", "single"],
-        "no-duplicate-imports": "error"
+        "no-duplicate-imports": "error",
+        "newline-before-return": "error"
     }
 }
