@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Auth0Provider as Auth0ProviderLib } from '@auth0/auth0-react'
-import { constants } from '../../utils'
+import { constants } from '../../utils/constants'
 
 type Auth0Provider = { children: ReactNode | ReactNode[] }
 type AppState = {

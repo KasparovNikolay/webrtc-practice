@@ -3,3 +3,5 @@ export const constants = {
   DOMAIN: import.meta.env.VITE_YOUR_DOMAIN,
   CLIENT_ID: import.meta.env.VITE_CLIENT_ID,
 }
+
+export const socketConfig = { iceServers: [{ urls: ['stun:stun.l.google.com:19302'] }] }

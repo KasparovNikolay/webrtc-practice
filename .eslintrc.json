@@ -40,6 +40,12 @@
         "spaced-comment": "error",
         "quotes": ["error", "single"],
         "no-duplicate-imports": "error",
-        "newline-before-return": "error"
+        "newline-before-return": "error",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error", {
+            "varsIgnorePattern": "_",
+            "argsIgnorePattern": "_",
+            "ignoreRestSiblings": true
+        }]
     }
 }
