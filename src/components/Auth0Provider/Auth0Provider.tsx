@@ -1,16 +1,16 @@
-import {FC, ReactNode} from 'react';
-import {useNavigate} from "react-router-dom";
-import {Auth0Provider as Auth0ProviderLib} from "@auth0/auth0-react";
-import {constants} from "../../utils";
+import { FC, ReactNode } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Auth0Provider as Auth0ProviderLib } from '@auth0/auth0-react'
+import { constants } from '../../utils'
 
-type Auth0Provider = { children: ReactNode | ReactNode[] };
+type Auth0Provider = { children: ReactNode | ReactNode[] }
 
-export const Auth0Provider: FC<Auth0Provider> = ({children}) => {
-  const navigate = useNavigate();
+export const Auth0Provider: FC<Auth0Provider> = ({ children }) => {
+  const navigate = useNavigate()
 
   const onRedirectCallback = (appState: any) => {
-    navigate((appState && appState.returnTo) || window.location.pathname);
-  };
+    navigate((appState && appState.returnTo) || window.location.pathname)
+  }
 
   return (
     <Auth0ProviderLib
@@ -23,5 +23,5 @@ export const Auth0Provider: FC<Auth0Provider> = ({children}) => {
     >
       {children}
     </Auth0ProviderLib>
-  );
-};
+  )
+}
