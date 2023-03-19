@@ -13,6 +13,8 @@ export type MediaStreamType = MediaStream | null
 
 export type PeerConnectionType = null | PeerConnection
 
-export type VideoRef = HTMLVideoElement | null
+export type Nullable<T> = null | T
+
+export type VideoRef = Nullable<HTMLVideoElement>
 
 export type SizeType = Record<'width' | 'height', number>

@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, useState } from 'react'
 import { MediaDevice, MediaType } from '../../utils/media-device'
-import { ConfigType, MediaStreamType, SizeType, VideoRef } from '../../utils/types'
+import { ConfigType, MediaStreamType, Nullable, SizeType, VideoRef } from '../../utils/types'
 
 type CallWindowPropsType = {
   remoteSrc: MediaStreamType
@@ -19,7 +19,7 @@ export const CallWindow: FC<CallWindowPropsType> = ({
 }) => {
   const remoteVideo = useRef<VideoRef>(null)
   const localVideo = useRef<VideoRef>(null)
-  const localVideoSize = useRef<SizeType>(null)
+  const localVideoSize = useRef<Nullable<SizeType>>(null)
   const [video, setVideo] = useState(config?.video)
   const [audio, setAudio] = useState(config?.audio)
 
@@ -31,8 +31,7 @@ export const CallWindow: FC<CallWindowPropsType> = ({
 
   useEffect(() => {
     const { width, height } = (localVideo.current as HTMLElement).getBoundingClientRect()
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+
     localVideoSize.current = { width, height }
   }, [])
 

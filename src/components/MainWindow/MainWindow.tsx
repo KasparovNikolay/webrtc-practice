@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { ChangeEvent, FC, useEffect, useState } from 'react'
 import socket from '../../utils/socket'
 import { StartCallFn } from '../../utils/types'
 
@@ -21,6 +21,11 @@ export const MainWindow: FC<MainWindowPropsType> = ({ startCall }) => {
     startCall(true, remoteId, config)
   }
 
+  const handleChangeFriendId = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setError('')
+    setRemoteId(value)
+  }
+
   return (
     <div className='container main-window'>
       <div className='local-id'>
@@ -34,10 +39,7 @@ export const MainWindow: FC<MainWindowPropsType> = ({ startCall }) => {
           type='text'
           spellCheck={false}
           placeholder='Enter friend ID'
-          onChange={({ target: { value } }) => {
-            setError('')
-            setRemoteId(value)
-          }}
+          onChange={handleChangeFriendId}
         />
         <div className='control'>
           <button onClick={callWithVideo(true)}>
