@@ -6,7 +6,7 @@ import { socketConfig } from './constants'
 export class PeerConnection extends Emitter {
   private pc: RTCPeerConnection
   private remoteId: string
-  private mediaDevice: MediaDevice
+  public mediaDevice: MediaDevice
 
   constructor(remoteId: string) {
     super()

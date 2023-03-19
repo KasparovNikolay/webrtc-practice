@@ -42,7 +42,7 @@
         "no-duplicate-imports": "error",
         "newline-before-return": "error",
         "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": ["error", {
+        "@typescript-eslint/no-unused-vars": ["warn", {
             "varsIgnorePattern": "_",
             "argsIgnorePattern": "_",
             "ignoreRestSiblings": true
