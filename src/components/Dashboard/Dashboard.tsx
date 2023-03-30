@@ -1,15 +1,18 @@
 import { ChangeEvent, FC, useEffect, useState } from 'react'
-import socket from '../../utils/socket'
-import { StartCallFn } from '../../utils/types'
+
 import Input from 'antd/es/input/Input'
 import Button from 'antd/es/button/Button'
-import Title from 'antd/es/typography/Title'
+
 import VideoCameraOutlined from '@ant-design/icons/VideoCameraOutlined'
 import CustomerServiceOutlined from '@ant-design/icons/CustomerServiceOutlined'
 
+import socket from '../../utils/socket'
+import { StartCallFn } from '../../utils/types'
+import { DashboardUserCard } from '../DashboardUserCard/DashboardUserCard'
+
 type MainWindowPropsType = { startCall: StartCallFn }
 
-export const MainWindow: FC<MainWindowPropsType> = ({ startCall }) => {
+export const Dashboard: FC<MainWindowPropsType> = ({ startCall }) => {
   const [localId, setLocalId] = useState('')
   const [remoteId, setRemoteId] = useState('')
   const [error, setError] = useState('')
@@ -32,14 +35,11 @@ export const MainWindow: FC<MainWindowPropsType> = ({ startCall }) => {
   }
 
   return (
-    <div className='container main-window'>
-      <div className='local-id'>
-        <Title>Your ID is</Title>
-        <p>{localId}</p>
-      </div>
-      <div className='remote-id'>
+    <div>
+      <DashboardUserCard userId={localId} />
+      <div>
         <label htmlFor='remoteId'>Your friend ID</label>
-        <p className='error'>{error}</p>
+        <p>{error}</p>
         <Input
           type='text'
           spellCheck={false}

@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react'
 import socket from '../utils/socket'
 import { PeerConnection } from '../utils/peer-connection'
 import CallWindow from '../components/CallWindow/CallWindow'
-import { MainWindow } from '../components/MainWindow/MainWindow'
 import { CallModal } from '../components/CallModal/CallModal'
 import { ConfigType, PeerConnectionType, MediaStreamType } from '../utils/types'
+import { Dashboard } from '../components/Dashboard/Dashboard'
+import { CallToModal } from '../components/CallToModal/CallToModal'
 
 const Main = () => {
   const [callFrom, setCallFrom] = useState('')
   const [calling, setCalling] = useState(false)
 
+  // показывает модалку что кто-то звонит
   const [showModal, setShowModal] = useState(false)
 
   const [localSrc, setLocalSrc] = useState<MediaStreamType>(null)
@@ -82,23 +84,14 @@ const Main = () => {
 
   return (
     <>
-      <h1>React WebRTC</h1>
-      <MainWindow startCall={startCall} />
-      {calling && (
-        <div className='calling'>
-          <button disabled>
-            <span>BsPhoneVibrate</span>
-          </button>
-        </div>
-      )}
-      {
-        <CallModal
-          showModal={showModal}
-          callFrom={callFrom}
-          startCall={startCall}
-          rejectCall={rejectCall}
-        />
-      }
+      <Dashboard startCall={startCall} />
+      <CallToModal isCalling={calling} onReject={() => finishCall(true)} />
+      <CallModal
+        showModal={showModal}
+        callFrom={callFrom}
+        startCall={startCall}
+        rejectCall={rejectCall}
+      />
       {remoteSrc && (
         <CallWindow
           localSrc={localSrc}

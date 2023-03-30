@@ -5,6 +5,7 @@ import VideoCameraOutlined from '@ant-design/icons/VideoCameraOutlined'
 import CustomerServiceOutlined from '@ant-design/icons/CustomerServiceOutlined'
 import PoweroffOutlined from '@ant-design/icons/PoweroffOutlined'
 import styles from './CallWindow.module.css'
+import Button from 'antd/es/button/Button'
 
 type CallWindowPropsType = {
   remoteSrc: MediaStreamType
@@ -110,15 +111,15 @@ export const CallWindow: FC<CallWindowPropsType> = ({
           }}
         />
         <div className={styles.control}>
-          <button className={video ? '' : 'reject'} onClick={toggleMediaDevice('Video')}>
+          <Button className={video ? '' : 'reject'} onClick={toggleMediaDevice('Video')}>
             <VideoCameraOutlined />
-          </button>
-          <button className={audio ? '' : 'reject'} onClick={toggleMediaDevice('Audio')}>
+          </Button>
+          <Button className={audio ? '' : 'reject'} onClick={toggleMediaDevice('Audio')}>
             <CustomerServiceOutlined />
-          </button>
-          <button className='reject' onClick={handleFinishCall}>
+          </Button>
+          <Button onClick={handleFinishCall}>
             <PoweroffOutlined />
-          </button>
+          </Button>
         </div>
       </div>
     </div>

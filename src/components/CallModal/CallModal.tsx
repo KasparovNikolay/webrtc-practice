@@ -1,14 +1,11 @@
 import { FC } from 'react'
 import { Callback, StartCallFn } from '../../utils/types'
-import Button from 'antd/es/button/Button'
-import Paragraph from 'antd/es/typography/Paragraph'
-import Modal from 'antd/es/modal/Modal'
-import Avatar from 'antd/es/avatar/avatar'
+import Button from 'antd/lib/button/Button'
+import Paragraph from 'antd/lib/typography/Paragraph'
+import Modal from 'antd/lib/modal/Modal'
+import Avatar from 'antd/lib/avatar/avatar'
 
-import PhoneFilled from '@ant-design/icons/PhoneFilled'
-import CameraFilled from '@ant-design/icons/CameraFilled'
-import UserOutlined from '@ant-design/icons/UserOutlined'
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled'
+import { PhoneFilled, CameraFilled, UserOutlined, CloseCircleFilled } from '@ant-design/icons'
 
 type CallModalPropsType = {
   callFrom: string
@@ -29,7 +26,7 @@ export const CallModal: FC<CallModalPropsType> = ({
   }
 
   return (
-    <Modal title='Входящий звонок' open={showModal} onCancel={rejectCall} footer={null}>
+    <Modal title='Входящий звонок' open={showModal} onCancel={rejectCall} footer={null} centered>
       <Avatar size={64} icon={<UserOutlined />} />
       <Paragraph>{`${callFrom} is calling`}</Paragraph>
       <div>
