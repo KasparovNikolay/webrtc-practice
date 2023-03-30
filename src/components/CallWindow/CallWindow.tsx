@@ -1,6 +1,10 @@
 import { FC, useEffect, useRef, useState } from 'react'
 import { MediaDevice, MediaType } from '../../utils/media-device'
 import { ConfigType, MediaStreamType, Nullable, SizeType, VideoRef } from '../../utils/types'
+import VideoCameraOutlined from '@ant-design/icons/VideoCameraOutlined'
+import CustomerServiceOutlined from '@ant-design/icons/CustomerServiceOutlined'
+import PoweroffOutlined from '@ant-design/icons/PoweroffOutlined'
+import styles from './CallWindow.module.css'
 
 type CallWindowPropsType = {
   remoteSrc: MediaStreamType
@@ -91,31 +95,29 @@ export const CallWindow: FC<CallWindowPropsType> = ({
   const handleVideoClick = () => setDragging(!dragging)
 
   return (
-    <div className='call-window'>
-      <div className='inner'>
-        <div className='video'>
-          <video className='remote' ref={remoteVideo} autoPlay />
-          <video
-            className='local'
-            ref={localVideo}
-            autoPlay
-            muted
-            onClick={handleVideoClick}
-            style={{
-              top: `${coords.y}px`,
-              left: `${coords.x}px`,
-            }}
-          />
-        </div>
-        <div className='control'>
+    <div className={styles.container}>
+      <div className={styles.video}>
+        <video className={styles.remote} ref={remoteVideo} autoPlay />
+        <video
+          className={styles.local}
+          ref={localVideo}
+          autoPlay
+          muted
+          onClick={handleVideoClick}
+          style={{
+            top: `${coords.y}px`,
+            left: `${coords.x}px`,
+          }}
+        />
+        <div className={styles.control}>
           <button className={video ? '' : 'reject'} onClick={toggleMediaDevice('Video')}>
-            <span>BsCameraVideo</span>
+            <VideoCameraOutlined />
           </button>
           <button className={audio ? '' : 'reject'} onClick={toggleMediaDevice('Audio')}>
-            <span>BsPhone</span>
+            <CustomerServiceOutlined />
           </button>
           <button className='reject' onClick={handleFinishCall}>
-            <span>FiPhoneOff</span>
+            <PoweroffOutlined />
           </button>
         </div>
       </div>

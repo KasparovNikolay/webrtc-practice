@@ -1,34 +1,48 @@
 import { FC } from 'react'
 import { Callback, StartCallFn } from '../../utils/types'
+import Button from 'antd/es/button/Button'
+import Paragraph from 'antd/es/typography/Paragraph'
+import Modal from 'antd/es/modal/Modal'
+import Avatar from 'antd/es/avatar/avatar'
+
+import PhoneFilled from '@ant-design/icons/PhoneFilled'
+import CameraFilled from '@ant-design/icons/CameraFilled'
+import UserOutlined from '@ant-design/icons/UserOutlined'
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled'
 
 type CallModalPropsType = {
   callFrom: string
   startCall: StartCallFn
   rejectCall: Callback
+  showModal: boolean
 }
 
-export const CallModal: FC<CallModalPropsType> = ({ callFrom, startCall, rejectCall }) => {
+export const CallModal: FC<CallModalPropsType> = ({
+  callFrom,
+  startCall,
+  rejectCall,
+  showModal,
+}) => {
   const acceptWithVideo = (video: boolean) => () => {
     const config = { audio: true, video }
     startCall(false, callFrom, config)
   }
 
   return (
-    <div className='call-modal'>
-      <div className='inner'>
-        <p>{`${callFrom} is calling`}</p>
-        <div className='control'>
-          <button onClick={acceptWithVideo(true)}>
-            <span>BsCameraVideo</span>
-          </button>
-          <button onClick={acceptWithVideo(false)}>
-            <span>BsPhone</span>
-          </button>
-          <button onClick={rejectCall} className='reject'>
-            <span>FiPhoneOff</span>
-          </button>
-        </div>
+    <Modal title='Входящий звонок' open={showModal} onCancel={rejectCall} footer={null}>
+      <Avatar size={64} icon={<UserOutlined />} />
+      <Paragraph>{`${callFrom} is calling`}</Paragraph>
+      <div>
+        <Button onClick={acceptWithVideo(true)}>
+          <CameraFilled />
+        </Button>
+        <Button onClick={acceptWithVideo(false)}>
+          <PhoneFilled />
+        </Button>
+        <Button onClick={rejectCall} className='reject'>
+          <CloseCircleFilled />
+        </Button>
       </div>
-    </div>
+    </Modal>
   )
 }

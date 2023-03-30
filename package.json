@@ -12,6 +12,7 @@
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
     "@auth0/auth0-react": "^2.0.1",
     "@vitejs/plugin-basic-ssl": "^1.0.1",
     "antd": "^5.3.1",

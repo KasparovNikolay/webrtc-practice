@@ -91,7 +91,14 @@ const Main = () => {
           </button>
         </div>
       )}
-      {showModal && <CallModal callFrom={callFrom} startCall={startCall} rejectCall={rejectCall} />}
+      {
+        <CallModal
+          showModal={showModal}
+          callFrom={callFrom}
+          startCall={startCall}
+          rejectCall={rejectCall}
+        />
+      }
       {remoteSrc && (
         <CallWindow
           localSrc={localSrc}

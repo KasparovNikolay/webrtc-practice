@@ -1,6 +1,11 @@
 import { ChangeEvent, FC, useEffect, useState } from 'react'
 import socket from '../../utils/socket'
 import { StartCallFn } from '../../utils/types'
+import Input from 'antd/es/input/Input'
+import Button from 'antd/es/button/Button'
+import Title from 'antd/es/typography/Title'
+import VideoCameraOutlined from '@ant-design/icons/VideoCameraOutlined'
+import CustomerServiceOutlined from '@ant-design/icons/CustomerServiceOutlined'
 
 type MainWindowPropsType = { startCall: StartCallFn }
 
@@ -29,25 +34,25 @@ export const MainWindow: FC<MainWindowPropsType> = ({ startCall }) => {
   return (
     <div className='container main-window'>
       <div className='local-id'>
-        <h2>Your ID is</h2>
+        <Title>Your ID is</Title>
         <p>{localId}</p>
       </div>
       <div className='remote-id'>
         <label htmlFor='remoteId'>Your friend ID</label>
         <p className='error'>{error}</p>
-        <input
+        <Input
           type='text'
           spellCheck={false}
           placeholder='Enter friend ID'
           onChange={handleChangeFriendId}
         />
         <div className='control'>
-          <button onClick={callWithVideo(true)}>
-            <span>CameraVideo</span>
-          </button>
-          <button onClick={callWithVideo(false)}>
-            <span>BsPhone</span>
-          </button>
+          <Button onClick={callWithVideo(true)}>
+            <VideoCameraOutlined />
+          </Button>
+          <Button onClick={callWithVideo(false)}>
+            <CustomerServiceOutlined />
+          </Button>
         </div>
       </div>
     </div>
