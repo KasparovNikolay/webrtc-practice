@@ -4,8 +4,9 @@ import { ConfigType, MediaStreamType, Nullable, SizeType, VideoRef } from '../..
 import VideoCameraOutlined from '@ant-design/icons/VideoCameraOutlined'
 import CustomerServiceOutlined from '@ant-design/icons/CustomerServiceOutlined'
 import PoweroffOutlined from '@ant-design/icons/PoweroffOutlined'
+import Button from 'antd/es/button'
+
 import styles from './CallWindow.module.css'
-import Button from 'antd/es/button/Button'
 
 type CallWindowPropsType = {
   remoteSrc: MediaStreamType

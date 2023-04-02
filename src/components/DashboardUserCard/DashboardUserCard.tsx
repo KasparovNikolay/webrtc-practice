@@ -3,7 +3,7 @@ import { FC, useState } from 'react'
 // TODO: обязательно пофиксить импорт
 import { Popover } from 'antd'
 import Title from 'antd/es/typography/Title'
-import Button from 'antd/es/button/button'
+import Button from 'antd/es/button'
 
 import SnippetsOutlined from '@ant-design/icons/SnippetsOutlined'
 
