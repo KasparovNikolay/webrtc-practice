@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useEffect, useState } from 'react'
+import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 
 import Input from 'antd/es/input/Input'
 import Button from 'antd/es/button'

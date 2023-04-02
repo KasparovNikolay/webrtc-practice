@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import Title from 'antd/es/typography/Title'
 
-import s from './signup.module.css'
+import s from './signup.module.scss'
 
 export const SignupPage = () => {
   return (

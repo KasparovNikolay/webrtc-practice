@@ -1,11 +1,12 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import React, { FC, useEffect, useRef, useState } from 'react'
 import { MediaDevice, MediaType } from '../../utils/media-device'
 import { ConfigType, MediaStreamType, Nullable, SizeType, VideoRef } from '../../utils/types'
 import VideoCameraOutlined from '@ant-design/icons/VideoCameraOutlined'
 import CustomerServiceOutlined from '@ant-design/icons/CustomerServiceOutlined'
 import PoweroffOutlined from '@ant-design/icons/PoweroffOutlined'
-import styles from './CallWindow.module.css'
-import Button from 'antd/es/button/Button'
+import Button from 'antd/es/button'
+
+import styles from './CallWindow.module.scss'
 
 type CallWindowPropsType = {
   remoteSrc: MediaStreamType

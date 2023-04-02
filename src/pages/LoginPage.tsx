@@ -5,7 +5,7 @@ import Form from 'antd/es/form'
 import { Link } from 'react-router-dom'
 import Title from 'antd/es/typography/Title'
 
-import s from './signup.module.css'
+import s from './signup.module.scss'
 
 export const LoginPage = () => {
   return (

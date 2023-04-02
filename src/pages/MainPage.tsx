@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { CallModal } from '../components/CallModal/CallModal'
 import { Dashboard } from '../components/Dashboard/Dashboard'

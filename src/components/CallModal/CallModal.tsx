@@ -1,6 +1,6 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 import { Callback, StartCallFn } from '../../utils/types'
-import Button from 'antd/es/button/Button'
+import Button from 'antd/es/button'
 import Paragraph from 'antd/es/typography/Paragraph'
 import Modal from 'antd/es/modal/Modal'
 import Avatar from 'antd/es/avatar/avatar'
