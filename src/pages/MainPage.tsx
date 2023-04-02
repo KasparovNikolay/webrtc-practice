@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import socket from '../utils/socket'
-import { PeerConnection } from '../utils/peer-connection'
-import CallWindow from '../components/CallWindow/CallWindow'
+import { useEffect, useState } from 'react'
+
 import { CallModal } from '../components/CallModal/CallModal'
-import { ConfigType, PeerConnectionType, MediaStreamType } from '../utils/types'
 import { Dashboard } from '../components/Dashboard/Dashboard'
+import { CallWindow } from '../components/CallWindow/CallWindow'
 import { CallToModal } from '../components/CallToModal/CallToModal'
 
-const Main = () => {
+import { socket } from '../utils/socket'
+import { PeerConnection } from '../utils/peer-connection'
+import { ConfigType, PeerConnectionType, MediaStreamType } from '../utils/types'
+// import Row from 'antd/es/grid/row'
+// import Col from 'antd/es/grid/col'
+
+export const MainPage = () => {
   const [callFrom, setCallFrom] = useState('')
   const [calling, setCalling] = useState(false)
 
@@ -84,7 +88,12 @@ const Main = () => {
 
   return (
     <>
+      {/* <Row> */}
+      {/*   <Col span={10}> */}
       <Dashboard startCall={startCall} />
+      {/*   </Col> */}
+      {/*   <Col span={10}>/!* col-6 col-pull-18 *!/</Col> */}
+      {/* </Row> */}
       <CallToModal isCalling={calling} onReject={() => finishCall(true)} />
       <CallModal
         showModal={showModal}
@@ -104,5 +113,3 @@ const Main = () => {
     </>
   )
 }
-
-export default Main

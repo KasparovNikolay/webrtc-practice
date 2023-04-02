@@ -1,15 +1,26 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import { LoginButton } from '../LoginButton/LogginButton'
-import { LogoutButton } from '../LogoutButton/LogoutButton'
+const useUser = () => {
+  return {
+    user: {
+      picture: '',
+      name: '',
+      email: '',
+    },
+    isAuthenticated: false,
+    isLoading: true,
+  }
+}
 
 export const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0()
+  const { user, isAuthenticated, isLoading } = useUser()
   const nonAuth = !user || !isAuthenticated
 
   return (
     <div>
       {nonAuth && <div>user is not defined</div>}
-      {nonAuth ? <LoginButton /> : <LogoutButton />}
+
+      {/* login or logout */}
+      {nonAuth ? <div /> : <div />}
+
       {isLoading && <div>Loading ...</div>}
 
       {user && (

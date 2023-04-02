@@ -1,6 +1,6 @@
 import { Emitter } from './emitter'
 import { MediaDevice } from './media-device'
-import socket from './socket'
+import { socket } from './socket'
 import { socketConfig } from './constants'
 
 export class PeerConnection extends Emitter {

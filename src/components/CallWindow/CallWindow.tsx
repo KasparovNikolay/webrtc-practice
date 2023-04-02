@@ -125,5 +125,3 @@ export const CallWindow: FC<CallWindowPropsType> = ({
     </div>
   )
 }
-
-export default CallWindow
