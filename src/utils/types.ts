@@ -1,4 +1,5 @@
 import { PeerConnection } from './peer-connection'
+import { ChangeEvent } from 'react'
 
 export type ConfigType = null | {
   video: boolean
@@ -18,3 +19,5 @@ export type Nullable<T> = null | T
 export type VideoRef = Nullable<HTMLVideoElement>
 
 export type SizeType = Record<'width' | 'height', number>
+
+export type OnInputChangeEvent = ChangeEvent<HTMLInputElement>

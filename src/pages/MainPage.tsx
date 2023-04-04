@@ -8,8 +8,9 @@ import { CallToModal } from '../components/CallToModal/CallToModal'
 import { socket } from '../utils/socket'
 import { PeerConnection } from '../utils/peer-connection'
 import { ConfigType, PeerConnectionType, MediaStreamType } from '../utils/types'
-// import Row from 'antd/es/grid/row'
-// import Col from 'antd/es/grid/col'
+import Row from 'antd/es/grid/row'
+import Col from 'antd/es/grid/col'
+import { Profile } from '../components/Profile/Profile'
 
 export const MainPage = () => {
   const [callFrom, setCallFrom] = useState('')
@@ -88,12 +89,14 @@ export const MainPage = () => {
 
   return (
     <>
-      {/* <Row> */}
-      {/*   <Col span={10}> */}
-      <Dashboard startCall={startCall} />
-      {/*   </Col> */}
-      {/*   <Col span={10}>/!* col-6 col-pull-18 *!/</Col> */}
-      {/* </Row> */}
+      <Row>
+        <Col span={10}>
+          <Dashboard startCall={startCall} />
+        </Col>
+        <Col span={10}>
+          <Profile />
+        </Col>
+      </Row>
       <CallToModal isCalling={calling} onReject={() => finishCall(true)} />
       <CallModal
         showModal={showModal}

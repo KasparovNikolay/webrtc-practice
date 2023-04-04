@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import Modal from 'antd/es/modal/Modal'
 import Spin from 'antd/es/spin'
 
