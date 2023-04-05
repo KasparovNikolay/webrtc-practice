@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { OnInputChangeEvent } from './types'
+import { $axios } from './axios'
+import { useNavigate } from 'react-router-dom'
 
 export const useSignupForm = () => {
   const [name, setName] = useState('')
@@ -8,6 +10,8 @@ export const useSignupForm = () => {
   const [repeatedPassword, setRepeatedPassword] = useState('')
   const [isSending, setIsSending] = useState(false)
   const [errors, setErrors] = useState({})
+
+  const navigate = useNavigate()
 
   const handleChangeLogin = (event: OnInputChangeEvent) => setEmail(event.target.value)
   const handleChangePassword = (event: OnInputChangeEvent) => setPassword(event.target.value)
@@ -20,8 +24,16 @@ export const useSignupForm = () => {
     const data = { email, password }
     // validate
     // set errors
-    // send to backend
-    setIsSending(false)
+    $axios
+      .post('/signup', data)
+      .then(({ data }) => {
+        if (data.user.id) navigate('/')
+      })
+      .catch((e) => {
+        setErrors({ all: e.message })
+        console.warn(e)
+      })
+      .finally(() => setIsSending(false))
   }
 
   return {

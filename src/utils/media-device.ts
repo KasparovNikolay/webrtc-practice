@@ -1,6 +1,5 @@
 import Emitter from './emitter'
-
-export type MediaType = 'Video' | 'Audio'
+import { MediaType } from './types'
 
 export class MediaDevice extends Emitter {
   private stream: MediaStream | undefined

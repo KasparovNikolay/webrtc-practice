@@ -1,9 +1,12 @@
 import axios from 'axios'
 
+console.log(import.meta.env.VITE_API_BASE_URL)
+
 export const $axios = axios.create({
-  baseURL: import.meta.env.API_BASE_URL,
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   withCredentials: true,
   headers: {
+    'Access-Control-Allow-Credentials': true,
     'Content-type': 'application/json',
   },
 })

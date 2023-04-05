@@ -1,6 +1,13 @@
 import { FC, useEffect, useRef, useState } from 'react'
-import { MediaDevice, MediaType } from '../../utils/media-device'
-import { ConfigType, MediaStreamType, Nullable, SizeType, VideoRef } from '../../utils/types'
+import { MediaDevice } from '../../utils/media-device'
+import {
+  ConfigType,
+  MediaStreamType,
+  MediaType,
+  Nullable,
+  SizeType,
+  VideoRef,
+} from '../../utils/types'
 import VideoCameraOutlined from '@ant-design/icons/VideoCameraOutlined'
 import CustomerServiceOutlined from '@ant-design/icons/CustomerServiceOutlined'
 import PoweroffOutlined from '@ant-design/icons/PoweroffOutlined'

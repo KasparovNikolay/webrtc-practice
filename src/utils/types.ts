@@ -1,6 +1,8 @@
 import { PeerConnection } from './peer-connection'
 import { ChangeEvent } from 'react'
 
+export type MediaType = 'Video' | 'Audio'
+
 export type ConfigType = null | {
   video: boolean
   audio: boolean
