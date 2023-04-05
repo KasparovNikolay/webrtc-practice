@@ -1,13 +1,16 @@
 import { useState } from 'react'
-import { OnInputChangeEvent } from './types'
-import { $axios } from './axios'
 import { useNavigate } from 'react-router-dom'
+
+import { OnInputChangeEvent } from '../types'
+import { useStore } from './use-store'
 
 export const useLoginForm = () => {
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
   const [isSending, setIsSending] = useState(false)
   const [errors, setErrors] = useState({})
+
+  const { user } = useStore()
 
   const navigate = useNavigate()
 
@@ -16,13 +19,10 @@ export const useLoginForm = () => {
 
   const submitForm = () => {
     setIsSending(true)
-    const data = { login, password }
     // TODO: validate
-    $axios
-      .post('/login', data)
-      .then(({ data }) => {
-        if (data.user.id) navigate('/')
-      })
+    user
+      .login(login, password)
+      .then(() => navigate('/'))
       .catch((e) => {
         setErrors({ all: e.message })
         console.log(e)

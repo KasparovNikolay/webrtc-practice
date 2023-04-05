@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { ConfigType, MediaStreamType, PeerConnectionType } from './types'
-import { socket } from './socket'
-import { PeerConnection } from './peer-connection'
+import { ConfigType, MediaStreamType, PeerConnectionType } from '../types'
+import { socket } from '../socket'
+import { PeerConnection } from '../peer-connection'
 
 export const useSocket = () => {
   const [callFrom, setCallFrom] = useState('')

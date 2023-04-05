@@ -3,10 +3,10 @@ import { CallModal } from '../components/CallModal/CallModal'
 import { Dashboard } from '../components/Dashboard/Dashboard'
 import { CallWindow } from '../components/CallWindow/CallWindow'
 import { CallToModal } from '../components/CallToModal/CallToModal'
+import { useSocket } from '../utils/hooks/use-socket'
 
 import Row from 'antd/es/grid/row'
 import Col from 'antd/es/grid/col'
-import { useSocket } from '../utils/use-socket'
 
 export const MainPage = () => {
   const {

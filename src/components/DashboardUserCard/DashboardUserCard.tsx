@@ -7,7 +7,7 @@ import Button from 'antd/es/button'
 
 import SnippetsOutlined from '@ant-design/icons/SnippetsOutlined'
 
-import { useClipBoard } from '../../utils/use-clipboard'
+import { useClipBoard } from '../../utils/hooks/use-clipboard'
 import Row from 'antd/es/grid/row'
 
 export const DashboardUserCard: FC<{ userId: string }> = ({ userId }) => {

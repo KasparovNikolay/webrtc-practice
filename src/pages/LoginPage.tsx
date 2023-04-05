@@ -7,7 +7,7 @@ import Title from 'antd/es/typography/Title'
 import Button from 'antd/es/button'
 
 import s from './signup.module.css'
-import { useLoginForm } from '../utils/use-login-form'
+import { useLoginForm } from '../utils/hooks/use-login-form'
 
 export const LoginPage = () => {
   const {

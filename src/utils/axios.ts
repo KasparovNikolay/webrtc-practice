@@ -1,7 +1,5 @@
 import axios from 'axios'
 
-console.log(import.meta.env.VITE_API_BASE_URL)
-
 export const $axios = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   withCredentials: true,
@@ -13,7 +11,11 @@ export const $axios = axios.create({
 
 $axios.interceptors.request.use(
   (config) => {
-    // Do something before request is sent
+    const storeValue = localStorage.getItem('Authorization')
+    if (storeValue) {
+      config.headers.Authorization = `Bearer ${storeValue}`
+    }
+
     return config
   },
   (error) => {
@@ -22,15 +24,15 @@ $axios.interceptors.request.use(
   },
 )
 
-$axios.interceptors.response.use(
-  (response) => {
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
-    return response
-  },
-  (error) => {
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // Do something with response error
-    return Promise.reject(error)
-  },
-)
+// $axios.interceptors.response.use(
+//   (response) => {
+//     // Any status code that lie within the range of 2xx cause this function to trigger
+//     // Do something with response data
+//     return response
+//   },
+//   (error) => {
+//     // Any status codes that falls outside the range of 2xx cause this function to trigger
+//     // Do something with response error
+//     return Promise.reject(error)
+//   },
+// )

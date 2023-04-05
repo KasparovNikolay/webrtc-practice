@@ -1,5 +1,5 @@
-import { PeerConnection } from './peer-connection'
 import { ChangeEvent } from 'react'
+import { PeerConnection } from './peer-connection'
 
 export type MediaType = 'Video' | 'Audio'
 
@@ -23,3 +23,17 @@ export type VideoRef = Nullable<HTMLVideoElement>
 export type SizeType = Record<'width' | 'height', number>
 
 export type OnInputChangeEvent = ChangeEvent<HTMLInputElement>
+
+// data type
+
+export interface IUser {
+  id: string
+  email: string
+  name?: string
+}
+
+export interface ILoginResponse {
+  accessToken: string
+  refreshToken: string
+  user: IUser
+}

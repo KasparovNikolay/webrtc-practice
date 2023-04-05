@@ -6,7 +6,7 @@ import Input from 'antd/es/input'
 import Title from 'antd/es/typography/Title'
 import Button from 'antd/es/button'
 
-import { useSignupForm } from '../utils/use-signup-form'
+import { useSignupForm } from '../utils/hooks/use-signup-form'
 
 import s from './signup.module.css'
 
@@ -15,7 +15,7 @@ export const SignupPage = () => {
     errors,
     submitForm,
     handleChangeName,
-    handleChangeLogin,
+    handleChangeEmail,
     handleChangePassword,
     handleChangeRepeatedPassword,
     isSending,
@@ -39,7 +39,7 @@ export const SignupPage = () => {
             <Input value={name} onChange={handleChangeName} className={s.input} />
           </Form.Item>
           <Form.Item name='email' label='Email' rules={[{ required: true }]}>
-            <Input value={email} onChange={handleChangeLogin} className={s.input} />
+            <Input value={email} onChange={handleChangeEmail} className={s.input} />
           </Form.Item>
           <Form.Item name='password' label='Пароль' rules={[{ required: true }]}>
             <Input.Password value={password} onChange={handleChangePassword} className={s.input} />
